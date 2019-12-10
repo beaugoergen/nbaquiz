@@ -3,6 +3,11 @@ var scrolly = main.select('#scrolly');
 var figure = scrolly.select('figure');
 var article = scrolly.select('article');
 var step = article.selectAll('.step');
+const quizContainer = document.getElementById('quiz');
+const resultsContainer = document.getElementById('results');
+const submitButton = document.getElementById('submit');
+
+var questions = ["The Atlanta Hawks have ______ NBA championships.", "Which players did not play for the Atlanta Hawks?", "What Atlanta Hawks legend earned the nickname The Human Highlight Film? (First and Last name)"]
 
 // initialize the scrollama
 var scroller = scrollama();
@@ -36,7 +41,7 @@ function handleStepEnter(response) {
   })
 
   // update graphic based on step
-  figure.select('p').text(response.index + 1);
+  figure.select('p').text(questions[response.index]);
 }
 
 function setupStickyfill() {
